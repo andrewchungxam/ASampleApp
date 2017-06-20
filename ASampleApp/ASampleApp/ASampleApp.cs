@@ -8,21 +8,23 @@ namespace ASampleApp
 	{
 		public App ()
 		{
-			// The root page of your application
-			var content = new ContentPage {
-				Title = "ASampleApp",
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							HorizontalTextAlignment = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
+			var asp = new FirstPage ();
 
-			MainPage = new NavigationPage (content);
+			//// The root page of your application
+			//var content = new ContentPage {
+			//	Title = "ASampleApp",
+			//	Content = new StackLayout {
+			//		VerticalOptions = LayoutOptions.Center,
+			//		Children = {
+			//			new Label {
+			//				HorizontalTextAlignment = TextAlignment.Center,
+			//				Text = "Welcome to Xamarin Forms!"
+			//			}
+			//		}
+			//	}
+			//};
+
+			MainPage = new NavigationPage (asp);
 		}
 
 		protected override void OnStart ()
