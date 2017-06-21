@@ -10,5 +10,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ASampleApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\FirstPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\FirstViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\FileAccessHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Dog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DogRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\" />
   </ItemGroup>
 </Project>
