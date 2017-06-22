@@ -23,7 +23,7 @@ namespace ASampleApp
 			//
 			_firstLabel.SetBinding (Label.TextProperty, nameof(ViewModel.FirstLabel));
 			_firstEntry.SetBinding (Entry.TextProperty, nameof (ViewModel.FirstEntryText));
-			           
+            _firstButton.SetBinding(Button.CommandProperty, nameof(ViewModel.MyFavoriteCommand));          
 			Content = new StackLayout 
 			{
 				Margin = 20,
@@ -41,28 +41,31 @@ namespace ASampleApp
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-			_firstButton.Clicked += OnFirstButtonClicked;
+            //METHOD 1
+//			_firstButton.Clicked += OnFirstButtonClicked;
 		}
 
 		protected override void OnDisappearing ()
 		{
 			base.OnDisappearing ();
-			_firstButton.Clicked -= OnFirstButtonClicked;
+			//METHOD 1
+
+			//			_firstButton.Clicked -= OnFirstButtonClicked;
 		}
 
-		void OnFirstButtonClicked (object sender, EventArgs e)
-		{
-			Console.WriteLine ("Hello there;");
-			string ft = _firstEntry.Text;
+		//void OnFirstButtonClicked (object sender, EventArgs e)
+		//{
+		//	Console.WriteLine ("Hello there;");
+		//	string ft = _firstEntry.Text;
 
-			//SIMPLE COMMAND 1
-			//Device.BeginInvokeOnMainThread (() => 
-			//                                _firstLabel.Text = ft
-			//                               );
+		//	//SIMPLE ACTION 1
+		//	//Device.BeginInvokeOnMainThread (() => 
+		//	//                                _firstLabel.Text = ft
+		//	//                               );
 
-			//SIMPLE COMMAND 2
-			ViewModel.FirstLabel = "hi there!";
+		//	//SIMPLE ACTION 2
+		//	//ViewModel.FirstLabel = "hi there!";
 
-		}
+		//}
 	}
 }

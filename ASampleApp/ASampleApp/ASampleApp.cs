@@ -1,14 +1,21 @@
 ﻿using System;
-
+using ASampleApp.Data;
 using Xamarin.Forms;
 
 namespace ASampleApp
 {
 	public class App : Application
 	{
+
+        public static DogRepository DogRep { get; set; }
+
 		public App ()
 		{
-			var asp = new FirstPage ();
+
+            string dbPath = "dog.db3";
+            DogRep = new DogRepository(dbPath);
+
+			var applicationStartPage = new FirstPage ();
 
 			//// The root page of your application
 			//var content = new ContentPage {
@@ -24,7 +31,7 @@ namespace ASampleApp
 			//	}
 			//};
 
-			MainPage = new NavigationPage (asp);
+			MainPage = new NavigationPage (applicationStartPage);
 		}
 
 		protected override void OnStart ()

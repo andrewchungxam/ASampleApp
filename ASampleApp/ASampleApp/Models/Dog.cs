@@ -1,16 +1,20 @@
-﻿using System;
-using System.ComponentModel;
-using Newtonsoft.Json;
+﻿////THIS IS FOR COSMOS DATABASE
 
-namespace ASampleApp
-{
-	public class Dog
-	{
-		[JsonProperty (PropertyName = "id")]
-		public string Id { get; set; }
-		[JsonProperty (PropertyName = "name")]
-		public string Name { get; set; }
-		[JsonProperty (PropertyName = "furColor")]
-		public string FurColor { get; set; }
-	}
-}
+//using System;
+//using System.ComponentModel;
+//using Newtonsoft.Json;
+
+//namespace ASampleApp
+//{
+
+
+//	public class Dog
+//	{
+//		[JsonProperty (PropertyName = "id")]
+//		public string Id { get; set; }
+//		[JsonProperty (PropertyName = "name")]
+//		public string Name { get; set; }
+//		[JsonProperty (PropertyName = "furColor")]
+//		public string FurColor { get; set; }
+//	}
+//}
