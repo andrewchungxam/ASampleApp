@@ -2,9 +2,13 @@
 using Xamarin.Forms;
 using ASampleApp.Data;
 using ASampleApp.Helper;
+using ASampleApp.View.Base;
+using ASampleApp.ViewModel;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 namespace ASampleApp.View
 {
-    public class ListOfDogsPage : ContentPage
+    public class ListOfDogsPage : BaseContentPage<ListOfDogsViewModel>
     {
         ListView _dogList;
         ///var _cellColor;
@@ -12,18 +16,13 @@ namespace ASampleApp.View
         public ListOfDogsPage()
         {
             _dogList = new ListView();
-            _dogList.ItemsSource = App.DogRepo.GetAllDogs();
-            //_cellColor = ;
+			_dogList.SetBinding(ListView.ItemsSourceProperty, nameof(MyViewModel.ListOfDoggos));
 
-            var myTemplate = new DataTemplate(typeof(DogViewCell));
-			//myTemplate.SetBinding(DogViewCell.BindingContextProperty, "Name");
-			//myTemplate.SetBinding(DogViewCell.DetailProperty, "FurColor");
-			//myTemplate.SetBinding(DogViewCell.TextColorProperty, "FurColorHexColor");
-            myTemplate.SetBinding(DogViewCell.BindingContextProperty, "Name");
-            myTemplate.SetBinding(DogViewCell.BindingContextProperty, "FurColor");
-            myTemplate.SetBinding(DogViewCell.BindingContextProperty, "FurColorHexColor");
+			var myTemplate = new DataTemplate(typeof(TextCell));
+            var model = BindingContext as Dog;
+            myTemplate.SetBinding(TextCell.TextProperty, nameof(model.Name));
+            myTemplate.SetBinding(TextCell.DetailProperty, nameof(model.FurColor));
 
-            _dogList.ItemTemplate = myTemplate;
 
             Content = new StackLayout
             {
@@ -32,6 +31,11 @@ namespace ASampleApp.View
                     _dogList
                 }
             };
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MyViewModel.ListOfDoggos = App.DogRepo.GetAllDogs();
         }
     }
 }

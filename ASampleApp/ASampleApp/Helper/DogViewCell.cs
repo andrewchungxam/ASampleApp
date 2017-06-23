@@ -1,11 +1,20 @@
 ﻿using System;
 using Xamarin.Forms;
-using System.Security.Cryptography.X509Certificates;
+
 namespace ASampleApp.Helper
 {
     public class DogViewCell : ViewCell
     {
+        public static readonly BindableProperty DogProperty = BindableProperty.Create<DogViewCell, Dog>(p => p.Dog, new Dog());
 
+        public Dog Dog
+		{
+			get { return (Dog)GetValue(DogProperty); }
+			set { SetValue(DogProperty, value); }
+		}
+
+        public string MyDoggoName { get; set; }
+        public string MyDoggoFurColor { get; set; }
 
         public DogViewCell()
         {

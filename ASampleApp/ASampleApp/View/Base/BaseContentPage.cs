@@ -9,7 +9,7 @@ namespace ASampleApp.View.Base
 
         public BaseContentPage()
         {
-            BindingContext = MyViewModel;
+            this.BindingContext = MyViewModel;
         }
 
         protected T MyViewModel{
