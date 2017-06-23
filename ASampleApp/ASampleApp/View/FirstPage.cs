@@ -4,52 +4,56 @@ using Xamarin.Forms;
 using ASampleApp.ViewModel;
 using ASampleApp.Data;
 using SQLite;
+//using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using ASampleApp.View.Base;
 
 namespace ASampleApp.View
 {
-    public class FirstPage : ContentPage
+    public class FirstPage : BaseContentPage<FirstViewModel>
     {
-        Label _displayItem = new Label(); //{ Text = "Label" };
-        Entry _firstItem = new Entry { Placeholder = "Enter Value" };
-        Button _submitButton = new Button { Text = "Submit" };
-        FirstViewModel _firstViewModel;
+        Entry _dogNameEntry = new Entry { Placeholder = "Enter Name of Dog" };
+        Entry _dogFurColorEntry = new Entry { Placeholder = "Enter Dog Fur Color" };
+        Button _submitNameandFurColorButton = new Button { Text = "Submit" };
+        Button _getListOfDogsButton = new Button { Text = "Get Dogs" };
         Label _dbPath = new Label() { Text = FileAccessHelper.GetLocalFilePath("people.db3") };
-        Label _dogLabel = new Label() { Text = App.DogRepo.GetFirstDog().Name };
 
         public FirstPage()
         {
-            _firstViewModel = new FirstViewModel();
-            BindingContext = _firstViewModel;
-
-            _displayItem.SetBinding(Label.TextProperty, "DisplayItem");
-            _firstItem.SetBinding(Entry.TextProperty, "FirstItem");
-            _submitButton.SetBinding(Button.CommandProperty, "DisplayItemCommand");
+            _dogFurColorEntry.SetBinding(Entry.TextProperty, "FurColorOfDog");
+            _dogNameEntry.SetBinding(Entry.TextProperty, "DogName");
+            _submitNameandFurColorButton.SetBinding(Button.CommandProperty, "DisplayItemCommand");
 
             Content = new StackLayout
             {
                 Margin = 20,
                 Children = {
-                    _displayItem,
-                    _dogLabel,
-                    _firstItem,
-                    _submitButton,
-                    _dbPath
+                    _dogNameEntry,
+                    _dogFurColorEntry,
+                    _submitNameandFurColorButton,
+                    _getListOfDogsButton
                 }
             };
 
         }
 
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            _getListOfDogsButton.Clicked  += _getListOfDogsButton_Clicked;
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+
+            _getListOfDogsButton.Clicked -= _getListOfDogsButton_Clicked;
         }
 
+        void _getListOfDogsButton_Clicked(object sender, EventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() => Navigation.PushAsync(new ListOfDogsPage()));
+        }
     }
 }
 

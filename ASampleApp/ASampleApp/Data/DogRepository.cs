@@ -18,7 +18,7 @@ namespace ASampleApp.Data
         public void AddNewDog(string name, string furColor)
         {
             int result = 0;
-            result = sqliteConnection.Insert(new Dog { Name = name, FurColor = furColor });
+            result = sqliteConnection.Insert(new Dog { Name = name, FurColor = furColor, FurColorHexColor = "#0000ff" }); //Id = id});
         }
 
         public List<Dog> GetAllDogs(){

@@ -16,6 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\FileAccessHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Dog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DogRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ListOfDogsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\DogViewCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ListOfDogsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Base\BaseContentPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Model\" />
@@ -23,5 +27,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)View\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\Base\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Helper\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Base\" />
   </ItemGroup>
 </Project>

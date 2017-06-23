@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using ASampleApp.Data;
+using ASampleApp;
+
 namespace ASampleApp.ViewModel
 {
     public class FirstViewModel : BaseViewModel
     {
-        string _displayItem, _firstItem;
+        string _displayItem, _nameOfDog, _furColorOfDog;
+
 
         public ICommand DisplayItemCommand { get; set; }
 
@@ -16,19 +20,25 @@ namespace ASampleApp.ViewModel
 
         }
 
-        public string FirstItem
+        public string DogName
         {
-            get { return _firstItem; }
-            set { SetProperty(ref _firstItem, value); }
+            get { return _nameOfDog; }
+            set { SetProperty(ref _nameOfDog, value); }
+        }
+
+        public string FurColorOfDog 
+        { 
+            get => _furColorOfDog; 
+            set => SetProperty(ref _furColorOfDog, value); 
         }
 
         public FirstViewModel(){
-            DisplayItemCommand = new Command(HandleAction);
+            DisplayItemCommand = new Command(SubmitNewDogAction);
         }
 
-        void HandleAction(object obj)
+        void SubmitNewDogAction(object obj)
         {
-			this.DisplayItem = "The Barlow";
+            new DogRepository(ASampleApp.App.DogRepo.ToString()).AddNewDog(DogName, FurColorOfDog);
         }
     }
 }

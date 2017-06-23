@@ -8,13 +8,13 @@ namespace ASampleApp
 {
     public class App : Application
     {
-        public static DogRepository DogRepo { get; set; }
+        public static DogRepository DogRepo { get; private set; }
 
         public App()
         {
-            String dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+            string dbPath = FileAccessHelper.GetLocalFilePath("people2.db3");
             DogRepo = new DogRepository(dbPath);
-            DogRepo.AddNewDog("Olive", "Brown");
+            DogRepo.AddNewDog("Olive", "Black");
             // The root page of your application
             MainPage = new NavigationPage(new FirstPage());
         }
