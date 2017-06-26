@@ -10,20 +10,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ASampleApp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SampleViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\FirstPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FirstViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\BaseContentPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Dog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\FileAccessHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DogSQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DogRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\DogListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DogListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Base\BaseContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\DogListMVVMPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DogListMVVMViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\AddPuppyPhotoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\DogListPhotoPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddPhotoPhotoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DogListPhotoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Pages\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\Base\" />
   </ItemGroup>
 </Project>

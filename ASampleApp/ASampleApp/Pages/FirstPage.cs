@@ -7,6 +7,7 @@ namespace ASampleApp
 		Label _firstLabel;
 		Entry _firstEntry;
 		Button _firstButton;
+		Button _goToDogList;
 
 		public FirstPage ()
 		{
@@ -17,21 +18,23 @@ namespace ASampleApp
 			//
 			_firstLabel = new Label (); //{ Text = "Hello"};
 			_firstEntry = new Entry ();
-			_firstButton = new Button () { Text = "Button"};
-
+			_firstButton = new Button () { Text = "Button" };
+			_goToDogList = new Button () { Text = "Go to Dog List" };
 			//METHOD#2 MVVM
 			//
-			_firstLabel.SetBinding (Label.TextProperty, nameof(ViewModel.FirstLabel));
-			_firstEntry.SetBinding (Entry.TextProperty, nameof (ViewModel.FirstEntryText));
-            _firstButton.SetBinding(Button.CommandProperty, nameof(ViewModel.MyFavoriteCommand));          
-			Content = new StackLayout 
-			{
+			_firstLabel.SetBinding (Label.TextProperty, nameof (MyViewModel.FirstLabel));
+			_firstEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.FirstEntryText));
+			_firstButton.SetBinding (Button.CommandProperty, nameof (MyViewModel.MyFavoriteCommand));
+
+
+			Content = new StackLayout {
 				Margin = 20,
 				Children =
 				{
 					_firstLabel,
 					_firstEntry,
-					_firstButton
+					_firstButton,
+					_goToDogList
 
 				}
 
@@ -41,8 +44,16 @@ namespace ASampleApp
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-            //METHOD 1
-//			_firstButton.Clicked += OnFirstButtonClicked;
+			//METHOD 1
+			//			_firstButton.Clicked += OnFirstButtonClicked;
+
+			_goToDogList.Clicked += OnToDogListClicked;
+
+			//TEST BY ADDING DOGS ON EACH ONAPPEARING
+			//App.DogRep.AddNewDog("Oliver", "Black");
+			//App.DogRep.AddNewDog("Oliver", "Black");
+
+
 		}
 
 		protected override void OnDisappearing ()
@@ -51,7 +62,26 @@ namespace ASampleApp
 			//METHOD 1
 
 			//			_firstButton.Clicked -= OnFirstButtonClicked;
+
+			_goToDogList.Clicked -= OnToDogListClicked;
 		}
+
+		void OnToDogListClicked (object sender, EventArgs e)
+		{
+			//OPTION 1
+			//Device.BeginInvokeOnMainThread (() => Navigation.PushAsync (new DogListPage ()));
+
+			//OPTION 2
+			Device.BeginInvokeOnMainThread (() => Navigation.PushAsync (new DogListMVVMPage ()));
+		}
+
+
+
+		//EventHandler OnToDogListClicked ()
+		//{
+		//	//throw new NotImplementedException ();
+		//	Device.BeginInvokeOnMainThread (()=> Navigation.PushAsync (new DogListPage()));
+		//}
 
 		//void OnFirstButtonClicked (object sender, EventArgs e)
 		//{

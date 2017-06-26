@@ -9,11 +9,11 @@ namespace ASampleApp
 
 		public BaseContentPage ()
 		{
-			BindingContext = ViewModel;
+			BindingContext = MyViewModel;
 		}
 
 		//protected T ViewModel => _viewModel ?? (_viewModel = new T ());
-		protected T ViewModel {
+		protected T MyViewModel {
 			get 
 			{
 				return _viewModel ?? (_viewModel = new T ());
