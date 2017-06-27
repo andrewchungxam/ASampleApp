@@ -36,6 +36,12 @@ namespace ASampleApp.Data
 
         }
 
+		public Dog GetLastDog()
+		{
+            return sqliteConnection.Table<Dog>().LastOrDefault();
+
+		}
+
 
     }
 }

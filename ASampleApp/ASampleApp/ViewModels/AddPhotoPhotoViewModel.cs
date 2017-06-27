@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ASampleApp
 {
-	public class AddPhotoPhotoViewModel
+    public class AddPhotoPhotoViewModel : BaseViewModel
 	{
 		public AddPhotoPhotoViewModel ()
 		{

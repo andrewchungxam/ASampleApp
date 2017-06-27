@@ -7,12 +7,12 @@ namespace ASampleApp
 	public class App : Application
 	{
 
-        public static DogRepository DogRep { get; set; }
+        public static DogRepository DogRep { get; private set; }
 
 		public App ()
 		{
 
-            string dbPath = "dog.db3";
+            string dbPath = FileAccessHelper.GetLocalFilePath("dog.db3");
             DogRep = new DogRepository(dbPath);
 
 			var applicationStartPage = new FirstPage ();

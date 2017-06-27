@@ -6,24 +6,40 @@ namespace ASampleApp
 	{
 		Label _firstLabel;
 		Entry _firstEntry;
+        Entry _secondEntry;
 		Button _firstButton;
-		Button _goToDogList;
+        Button _goToDogListButton;
+
+		Button _addAddDogPhotoURLButton;
+        Button _addAddDogPhotoButton;
+        Button _goToDogPhotoListButton;
 
 		public FirstPage ()
 		{
 
-			//BindingContext = new FirstViewModel ();
+            this.Title = "A Sample App";
+
 
 			//METHOD#1 non-MVVM
-			//
+			//BindingContext = new FirstViewModel ();
+
 			_firstLabel = new Label (); //{ Text = "Hello"};
-			_firstEntry = new Entry ();
+            _firstEntry = new Entry () {Placeholder = "Dog Name"};
+            _secondEntry = new Entry() { Placeholder = "Fur color" };
 			_firstButton = new Button () { Text = "Button" };
-			_goToDogList = new Button () { Text = "Go to Dog List" };
+			_goToDogListButton = new Button () { Text = "Go to Dog List" };
+
+			_addAddDogPhotoButton = new Button() { Text = "Add Dog Photo" };
+            _addAddDogPhotoURLButton = new Button { Text = "Add Dog Photo URL" };
+            _goToDogPhotoListButton = new Button() { Text = "Go to Dog Photo List"}; 
+
+
 			//METHOD#2 MVVM
 			//
-			_firstLabel.SetBinding (Label.TextProperty, nameof (MyViewModel.FirstLabel));
+            _firstLabel.SetBinding (Label.TextProperty, nameof (MyViewModel.FirstLabel), BindingMode.TwoWay);
 			_firstEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.FirstEntryText));
+			_secondEntry.SetBinding(Entry.TextProperty, nameof(MyViewModel.SecondEntryText));
+
 			_firstButton.SetBinding (Button.CommandProperty, nameof (MyViewModel.MyFavoriteCommand));
 
 
@@ -33,8 +49,12 @@ namespace ASampleApp
 				{
 					_firstLabel,
 					_firstEntry,
+                    _secondEntry,
 					_firstButton,
-					_goToDogList
+					_goToDogListButton,
+                    _addAddDogPhotoButton,
+                    _addAddDogPhotoURLButton,
+                    _goToDogPhotoListButton
 
 				}
 
@@ -47,7 +67,8 @@ namespace ASampleApp
 			//METHOD 1
 			//			_firstButton.Clicked += OnFirstButtonClicked;
 
-			_goToDogList.Clicked += OnToDogListClicked;
+			_goToDogListButton.Clicked += OnToDogListClicked;
+			_addAddDogPhotoButton.Clicked += OnAddDogPhotoButtonClicked;
 
 			//TEST BY ADDING DOGS ON EACH ONAPPEARING
 			//App.DogRep.AddNewDog("Oliver", "Black");
@@ -63,10 +84,17 @@ namespace ASampleApp
 
 			//			_firstButton.Clicked -= OnFirstButtonClicked;
 
-			_goToDogList.Clicked -= OnToDogListClicked;
+			_goToDogListButton.Clicked -= OnToDogListClicked;
+            _addAddDogPhotoButton.Clicked -= OnAddDogPhotoButtonClicked;
 		}
 
-		void OnToDogListClicked (object sender, EventArgs e)
+        private void OnAddDogPhotoButtonClicked(object sender, EventArgs e)
+        {
+//            throw new NotImplementedException();
+            Device.BeginInvokeOnMainThread(()=> Navigation.PushAsync(new AddPuppyPhotoPage()));
+        }
+
+        void OnToDogListClicked (object sender, EventArgs e)
 		{
 			//OPTION 1
 			//Device.BeginInvokeOnMainThread (() => Navigation.PushAsync (new DogListPage ()));

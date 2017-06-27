@@ -13,7 +13,8 @@ namespace ASampleApp
 	{
 
 		string _firstLabel;
-		string _firstEntryText;
+        string _firstEntryText;
+        string _secondEntryText;
 
         public ICommand MyFavoriteCommand { get; set; }
 		public ICommand MySecondFavoriteCommand { get; set; }
@@ -25,11 +26,20 @@ namespace ASampleApp
 			set { SetProperty (ref _firstLabel, value);}
 		}
 
+
+
 		public string FirstEntryText
 		{
 			get { return _firstEntryText;}
 			set { SetProperty (ref _firstEntryText, value);}
 		}
+
+		public string SecondEntryText
+		{
+			get { return _secondEntryText; }
+			set { SetProperty(ref _secondEntryText, value); }
+		}
+
 
 		public FirstViewModel ()
 		{
@@ -51,8 +61,15 @@ namespace ASampleApp
 
             //OPTION 3 - RETURN DOG
 
-            App.DogRep.AddNewDog("Oliver", "Black");
-            this.FirstLabel = App.DogRep.GetFirstDog().Name;
+            App.DogRep.AddNewDog(this.FirstEntryText, this.SecondEntryText);
+            string _lastNameString = App.DogRep.GetLastDog().Name;
+
+            //NOT BOUND1
+            //            this.FirstLabel = System.String.Format("{0} added to the list!", _firstNameString);
+			//YES BOUND1
+            string _lastNameStringAdd = System.String.Format("{0} added to the list!", _lastNameString);
+            this.FirstLabel = _lastNameStringAdd;
+
             return;
 
 
