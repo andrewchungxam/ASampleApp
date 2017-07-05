@@ -13,7 +13,7 @@ namespace ASampleApp.Data
         public static string GetLocalFilePath(string filename)
         {
             string _myDocumentFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            return System.IO.Path.Combine(_myDocumentFolderPath, filename)
+			return System.IO.Path.Combine (_myDocumentFolderPath, filename);
  
         }
 #endif

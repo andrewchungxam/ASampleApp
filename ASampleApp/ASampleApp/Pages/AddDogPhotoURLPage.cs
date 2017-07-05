@@ -18,13 +18,13 @@ namespace ASampleApp
 			_firstLabel = new Label ();
 			_firstEntry = new Entry () { Placeholder = "Dog Name" };
 			_secondEntry = new Entry () { Placeholder = "Fur color" };
-			_photoURLEntry = new Entry () { Text = "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg" };
+			_photoURLEntry = new Entry () { Placeholder = "Dog URL"};
 			_firstButton = new Button () { Text = "Button" };
 
 			_firstLabel.SetBinding (Label.TextProperty, nameof (MyViewModel.FirstLabel), BindingMode.TwoWay);
 			_firstEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.FirstEntryText));
 			_secondEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.SecondEntryText));
-//			_photoURLEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.PhotoURLEntry));
+			_photoURLEntry.SetBinding (Entry.TextProperty, nameof (MyViewModel.PhotoURLEntry));
 			_firstButton.SetBinding (Button.CommandProperty, nameof (MyViewModel.MyFavoriteCommand));
 
 			Content = new StackLayout {

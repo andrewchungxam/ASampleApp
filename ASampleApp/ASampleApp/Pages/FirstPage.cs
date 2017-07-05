@@ -10,8 +10,8 @@ namespace ASampleApp
 		Button _firstButton;
         Button _goToDogListButton;
 
+		Button _addAddDogPhotoButton;
 		Button _addAddDogPhotoURLButton;
-        Button _addAddDogPhotoButton;
         Button _goToDogPhotoListButton;
 
 		Label _emptyLabel;
@@ -75,6 +75,10 @@ namespace ASampleApp
 			_addAddDogPhotoButton.Clicked += OnAddDogPhotoButtonClicked;
 			_addAddDogPhotoURLButton.Clicked += OnAddDogPhotoURLButtonClicked;
 
+			_goToDogPhotoListButton.Clicked += OnAddDogPhotoListLButtonClicked;
+
+
+
 
 			//TEST BY ADDING DOGS ON EACH ONAPPEARING
 			//App.DogRep.AddNewDog("Oliver", "Black");
@@ -96,9 +100,18 @@ namespace ASampleApp
             _addAddDogPhotoButton.Clicked -= OnAddDogPhotoButtonClicked;
 			_addAddDogPhotoURLButton.Clicked -= OnAddDogPhotoURLButtonClicked;
 
+			_goToDogPhotoListButton.Clicked -= OnAddDogPhotoListLButtonClicked;
+
 		}
 
-        private void OnAddDogPhotoButtonClicked(object sender, EventArgs e)
+		void OnAddDogPhotoListLButtonClicked (object sender, EventArgs e)
+		{
+			//throw new NotImplementedException ();
+
+			Device.BeginInvokeOnMainThread (()=> Navigation.PushAsync (new DogListPhotoPage()));
+		}
+
+		private void OnAddDogPhotoButtonClicked(object sender, EventArgs e)
         {
 //            throw new NotImplementedException();
             Device.BeginInvokeOnMainThread(()=> Navigation.PushAsync(new AddPuppyPhotoPage()));
