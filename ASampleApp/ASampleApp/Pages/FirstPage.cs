@@ -14,6 +14,8 @@ namespace ASampleApp
         Button _addAddDogPhotoButton;
         Button _goToDogPhotoListButton;
 
+		Label _emptyLabel;
+
 		public FirstPage ()
 		{
 
@@ -28,6 +30,7 @@ namespace ASampleApp
             _secondEntry = new Entry() { Placeholder = "Fur color" };
 			_firstButton = new Button () { Text = "Button" };
 			_goToDogListButton = new Button () { Text = "Go to Dog List" };
+			_emptyLabel = new Label () { Text = " " };
 
 			_addAddDogPhotoButton = new Button() { Text = "Add Dog Photo" };
             _addAddDogPhotoURLButton = new Button { Text = "Add Dog Photo URL" };
@@ -52,6 +55,7 @@ namespace ASampleApp
                     _secondEntry,
 					_firstButton,
 					_goToDogListButton,
+					_emptyLabel,
                     _addAddDogPhotoButton,
                     _addAddDogPhotoURLButton,
                     _goToDogPhotoListButton
@@ -69,6 +73,8 @@ namespace ASampleApp
 
 			_goToDogListButton.Clicked += OnToDogListClicked;
 			_addAddDogPhotoButton.Clicked += OnAddDogPhotoButtonClicked;
+			_addAddDogPhotoURLButton.Clicked += OnAddDogPhotoURLButtonClicked;
+
 
 			//TEST BY ADDING DOGS ON EACH ONAPPEARING
 			//App.DogRep.AddNewDog("Oliver", "Black");
@@ -76,6 +82,8 @@ namespace ASampleApp
 
 
 		}
+
+
 
 		protected override void OnDisappearing ()
 		{
@@ -86,6 +94,8 @@ namespace ASampleApp
 
 			_goToDogListButton.Clicked -= OnToDogListClicked;
             _addAddDogPhotoButton.Clicked -= OnAddDogPhotoButtonClicked;
+			_addAddDogPhotoURLButton.Clicked -= OnAddDogPhotoURLButtonClicked;
+
 		}
 
         private void OnAddDogPhotoButtonClicked(object sender, EventArgs e)
@@ -93,6 +103,11 @@ namespace ASampleApp
 //            throw new NotImplementedException();
             Device.BeginInvokeOnMainThread(()=> Navigation.PushAsync(new AddPuppyPhotoPage()));
         }
+
+		void OnAddDogPhotoURLButtonClicked (object sender, EventArgs e)
+		{
+			Device.BeginInvokeOnMainThread (()=>Navigation.PushAsync (new AddDogPhotoURLPage()));	
+		}
 
         void OnToDogListClicked (object sender, EventArgs e)
 		{

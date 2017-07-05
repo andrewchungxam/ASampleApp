@@ -18,5 +18,14 @@ namespace ASampleApp.Models
         [MaxLength(250)]
         public string FurColor { get; set; }
 
+		[MaxLength (250)]
+		public string DogPictureURL { get; set; }
+
+		[MaxLength (250)]
+		public string DogPictureFile { get; set;}
+
+		[MaxLength (250)]
+		public string DogPictureSource { get; set;}
+
     }
 }
