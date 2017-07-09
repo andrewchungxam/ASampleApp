@@ -35,6 +35,12 @@ namespace ASampleApp.Data
 			sqliteConnection.Insert (new Dog { Name = name, FurColor = furColor, DogPictureFile = dogFile });
 		}
 
+		public void AddNewDogPhotoSource(string name, string furColor, string dogSource)
+		{
+            sqliteConnection.Insert(new Dog { Name = name, FurColor = furColor, DogPictureSource = dogSource });
+		}
+
+
 		public List<Dog> GetAllDogs ()
 		{
 			return sqliteConnection.Table<Dog> ().ToList ();

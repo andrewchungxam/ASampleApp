@@ -54,7 +54,13 @@ namespace ASampleApp
 			//			App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
 			//App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
 			//App.DogRep.AddNewDogPhotoFile(this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
+
+            //point 1
 			App.DogRep.AddNewDogPhotoURL(this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
+
+            //point 2
+            App.DogRep.AddNewDogPhotoSource(this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
+
 
 			string _lastNameString = App.DogRep.GetLastDog ().Name;
 

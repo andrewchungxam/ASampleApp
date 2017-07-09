@@ -19,8 +19,12 @@ namespace ASampleApp
 			myTemplate.SetBinding (ImageCell.TextProperty, "Name");
 			myTemplate.SetBinding (ImageCell.DetailProperty, "FurColor");
 			//			myTemplate.SetBinding (ImageCell.ImageSourceProperty, "DogPictureURL");
-            myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureURL");//nameof(model.DogPictureSource));
-			//myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureSource");//nameof(model.DogPictureSource));
+
+            //point 1
+            //myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureURL");//nameof(model.DogPictureSource));
+
+            //point 2
+            myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureSource");//nameof(model.DogPictureSource));
 
 			_dogListView.SetBinding (ListView.ItemsSourceProperty, nameof (MyViewModel.ObservableCollectionOfDogs));
 
