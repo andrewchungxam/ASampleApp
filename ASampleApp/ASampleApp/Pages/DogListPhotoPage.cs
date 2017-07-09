@@ -4,7 +4,7 @@ using ASampleApp.Models;
 using Xamarin.Forms;
 namespace ASampleApp
 {
-	public class DogListPhotoPage : BaseContentPage<DogListMVVMViewModel>
+	public class DogListPhotoPage : BaseContentPage<DogListPhotoViewModel>
 	{
 		ListView _dogListView;
 
