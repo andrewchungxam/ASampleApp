@@ -1,5 +1,6 @@
 ﻿//METHOD 1 - Observable Collection
 using System;
+using ASampleApp.Models;
 using Xamarin.Forms;
 namespace ASampleApp
 {
@@ -14,9 +15,13 @@ namespace ASampleApp
 
 			var myTemplate = new DataTemplate (typeof (ImageCell));
 			_dogListView.ItemTemplate = myTemplate;
+            var model = BindingContext as Dog; 
 			myTemplate.SetBinding (ImageCell.TextProperty, "Name");
 			myTemplate.SetBinding (ImageCell.DetailProperty, "FurColor");
-			myTemplate.SetBinding (ImageCell.ImageSourceProperty, "DogPictureURL");
+			//			myTemplate.SetBinding (ImageCell.ImageSourceProperty, "DogPictureURL");
+            myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureURL");//nameof(model.DogPictureSource));
+			//myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureSource");//nameof(model.DogPictureSource));
+
 			_dogListView.SetBinding (ListView.ItemsSourceProperty, nameof (MyViewModel.ObservableCollectionOfDogs));
 
 			Content = new StackLayout () {

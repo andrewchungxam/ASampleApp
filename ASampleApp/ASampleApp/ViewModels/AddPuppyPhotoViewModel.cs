@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace ASampleApp
 {
-	public class AddPhotoPhotoViewModel : BaseViewModel
+	public class AddPuppyPhotoViewModel : BaseViewModel
 	{
 		string _firstLabel;
 		string _firstEntryText;
@@ -44,7 +44,7 @@ namespace ASampleApp
 			set { SetProperty (ref _photoSourceEntry, value); }
 		}
 
-		public AddPhotoPhotoViewModel ()
+		public AddPuppyPhotoViewModel ()
 		{
 			MyFavoriteCommand = new Command (OnMyFavoriteAction);
 		}
@@ -52,7 +52,9 @@ namespace ASampleApp
 		void OnMyFavoriteAction ()
 		{
 			//			App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
-			App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
+			//App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
+			//App.DogRep.AddNewDogPhotoFile(this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
+			App.DogRep.AddNewDogPhotoURL(this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
 
 			string _lastNameString = App.DogRep.GetLastDog ().Name;
 

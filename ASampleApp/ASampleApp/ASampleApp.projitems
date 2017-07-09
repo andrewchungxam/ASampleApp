@@ -25,7 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DogListMVVMViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddPuppyPhotoPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\DogListPhotoPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddPhotoPhotoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddPuppyPhotoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DogListPhotoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\AddDogPhotoURLPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddDogPhotoURLViewModel.cs" />

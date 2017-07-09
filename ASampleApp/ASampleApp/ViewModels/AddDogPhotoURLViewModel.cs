@@ -50,13 +50,13 @@ namespace ASampleApp
 		public AddDogPhotoURLViewModel ()
 		{
 			MyFavoriteCommand = new Command (OnMyFavoriteAction);
-			MySecondFavoriteCommand = new Command (OnMySecondFavoriteCommand);
+			MySecondFavoriteCommand = new Command (OnMySecondFavoriteAction);
 		}
 
 		void OnMyFavoriteAction ()
 		{
-			//			App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
-			App.DogRep.AddNewDogPhotoFile (this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
+			App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoURLEntry);
+			//App.DogRep.AddNewDogPhotoURL (this.FirstEntryText, this.SecondEntryText, this.PhotoSourceEntry);
 
 			string _lastNameString = App.DogRep.GetLastDog ().Name;
 
@@ -67,7 +67,7 @@ namespace ASampleApp
 		}
 
 
-		async void OnMySecondFavoriteCommand ()
+        async void OnMySecondFavoriteAction ()
 		{
 
 			//TODO - Display Alert from VM Page.
