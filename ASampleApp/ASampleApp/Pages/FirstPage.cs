@@ -28,7 +28,7 @@ namespace ASampleApp
 			_firstLabel = new Label (); //{ Text = "Hello"};
             _firstEntry = new Entry () {Placeholder = "Dog Name"};
             _secondEntry = new Entry() { Placeholder = "Fur color" };
-			_firstButton = new Button () { Text = "Button" };
+			_firstButton = new Button () { Text = "Submit" };
 			_goToDogListButton = new Button () { Text = "Go to Dog List" };
 			_emptyLabel = new Label () { Text = " " };
 
@@ -79,12 +79,6 @@ namespace ASampleApp
 
 
 
-
-			//TEST BY ADDING DOGS ON EACH ONAPPEARING
-			//App.DogRep.AddNewDog("Oliver", "Black");
-			//App.DogRep.AddNewDog("Oliver", "Black");
-
-
 		}
 
 
@@ -106,14 +100,12 @@ namespace ASampleApp
 
 		void OnAddDogPhotoListLButtonClicked (object sender, EventArgs e)
 		{
-			//throw new NotImplementedException ();
 
 			Device.BeginInvokeOnMainThread (()=> Navigation.PushAsync (new DogListPhotoPage()));
 		}
 
 		private void OnAddDogPhotoButtonClicked(object sender, EventArgs e)
         {
-//            throw new NotImplementedException();
             Device.BeginInvokeOnMainThread(()=> Navigation.PushAsync(new AddPuppyPhotoPage()));
         }
 
@@ -132,26 +124,5 @@ namespace ASampleApp
 		}
 
 
-
-		//EventHandler OnToDogListClicked ()
-		//{
-		//	//throw new NotImplementedException ();
-		//	Device.BeginInvokeOnMainThread (()=> Navigation.PushAsync (new DogListPage()));
-		//}
-
-		//void OnFirstButtonClicked (object sender, EventArgs e)
-		//{
-		//	Console.WriteLine ("Hello there;");
-		//	string ft = _firstEntry.Text;
-
-		//	//SIMPLE ACTION 1
-		//	//Device.BeginInvokeOnMainThread (() => 
-		//	//                                _firstLabel.Text = ft
-		//	//                               );
-
-		//	//SIMPLE ACTION 2
-		//	//ViewModel.FirstLabel = "hi there!";
-
-		//}
 	}
 }

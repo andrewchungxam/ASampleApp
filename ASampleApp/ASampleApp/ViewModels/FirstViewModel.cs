@@ -3,7 +3,6 @@ using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-//using System.Windows.Input;
 
 using ASampleApp.Data;
 
@@ -64,29 +63,12 @@ namespace ASampleApp
             App.DogRep.AddNewDog(this.FirstEntryText, this.SecondEntryText);
             string _lastNameString = App.DogRep.GetLastDog().Name;
 
-            //NOT BOUND1
-            //            this.FirstLabel = System.String.Format("{0} added to the list!", _firstNameString);
 			//YES BOUND1
             string _lastNameStringAdd = System.String.Format("{0} added to the list!", _lastNameString);
             this.FirstLabel = _lastNameStringAdd;
 
             return;
 
-
         }
-
-//        private async Task OnMySecondFavoriteCommand()
-//        {
-
-//            var myDude = new Label();
-////            await myDude.Text = "hello";
-////            await ;
-////
-        //    await //need to do something that requires Async; 
-
-        //}
-
-
-
     }
 }

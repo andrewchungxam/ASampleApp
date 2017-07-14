@@ -12,7 +12,7 @@ namespace ASampleApp
 		public App ()
 		{
 
-            string dbPath = FileAccessHelper.GetLocalFilePath("dog3.db3");
+            string dbPath = FileAccessHelper.GetLocalFilePath("dog4.db3");
             DogRep = new DogRepository(dbPath);
 
 			var applicationStartPage = new FirstPage ();

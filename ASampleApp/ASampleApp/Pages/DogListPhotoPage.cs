@@ -18,7 +18,6 @@ namespace ASampleApp
             var model = BindingContext as Dog; 
 			myTemplate.SetBinding (ImageCell.TextProperty, "Name");
 			myTemplate.SetBinding (ImageCell.DetailProperty, "FurColor");
-			//			myTemplate.SetBinding (ImageCell.ImageSourceProperty, "DogPictureURL");
 
             //point 1
             //myTemplate.SetBinding(ImageCell.ImageSourceProperty, "DogPictureURL");//nameof(model.DogPictureSource));
@@ -36,6 +35,12 @@ namespace ASampleApp
 		}
 	}
 }
+
+
+
+
+
+
 
 //METHOD 2 - IList 
 //using System;

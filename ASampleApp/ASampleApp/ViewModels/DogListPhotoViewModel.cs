@@ -12,7 +12,7 @@ namespace ASampleApp
 		public DogListPhotoViewModel ()
 		{
 
-			//			https://stackoverflow.com/questions/5561156/convert-listt-to-observablecollectiont-in-wp7
+			//https://stackoverflow.com/questions/5561156/convert-listt-to-observablecollectiont-in-wp7
 			var list = new List<Dog> { };
 			list = App.DogRep.GetAllDogs ();
 
@@ -28,6 +28,13 @@ namespace ASampleApp
 		}
 	}
 }
+
+
+
+
+
+
+
 
 
 

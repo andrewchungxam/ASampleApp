@@ -1,10 +1,16 @@
-﻿using System;
+﻿// THIS PAGE IS NOT BOUND IN MVVM - PLEASE USE DOGLISTMVVMPAGE INSTEAD
+//
+//
+
+
+
+using System;
 using System.Collections.Generic;
 using ASampleApp.Models;
 using Xamarin.Forms;
 namespace ASampleApp
 {
-	public class DogListPage : BaseContentPage<DogListViewModel> //: BaseContentPage<DogListViewModel>
+	public class DogListPage : BaseContentPage<DogListViewModel> 
 	{
 
 		ListView _dogListView;
